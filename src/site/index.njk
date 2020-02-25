@@ -1,0 +1,14 @@
+---
+title: "noodd"
+layout: "main"
+---
+
+{% block main %}
+<main>
+
+{% set page_g = site.pageOfSrc('/g/index.njk') %}
+
+<a href="{{ page_g.url }}">{{ page_g.title }}</a>
+
+</main>
+{% endblock %}
