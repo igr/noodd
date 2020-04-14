@@ -4,11 +4,13 @@ layout: "main"
 ---
 
 {% block main %}
-<main>
+<main class="center-parent">
 
 {% set page_g = site.pageOfSrc('/g/index.njk') %}
+{% set page_eye = site.pageOfSrc('/eye/index.njk') %}
 
 <a href="{{ page_g.url }}">{{ page_g.title }}</a>
+<a href="{{ page_eye.url }}">{{ page_eye.title }}</a>
 
 </main>
 {% endblock %}

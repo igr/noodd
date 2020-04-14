@@ -1,0 +1,82 @@
+---
+title: "eye"
+---
+
+{% block head %}
+<style>
+body {
+  overflow: hidden;
+}
+h1 {
+
+}
+</style>
+{% endblock %}
+
+
+{% block main %}
+<h1>i see, therefore i am</h1>
+{% endblock %}
+
+{% block script %}
+<script src="foo.js"></script>
+<script src="/js/pixi-v5.1.6.min.js"></script>
+<script>
+const app = new PIXI.Application({
+	autoResize: true,
+  backgroundColor: 0xffffff,
+  resolution: devicePixelRatio,
+//  resizeTo: window,
+  antialias: true
+});
+
+let eye;
+let eyeW;
+let eyeH;
+
+let retina;
+let retinaW;
+let retinaH;
+
+function resize() {
+	app.renderer.resize(window.innerWidth, window.innerHeight);
+  const w = app.screen.width;
+  const h = app.screen.height;
+
+  let eyeScale = w / eyeW;
+  
+  eye.scale.set(eyeScale, eyeScale);
+  retina.scale.set(eyeScale, eyeScale);
+  retina.x = eye.width / 4;
+  retina.y = eye.height / 6;
+}
+
+ready(() => {
+  document.body.appendChild(app.view);
+  window.addEventListener("resize", resize);
+});
+
+function setup() {  
+  eye = new PIXI.Sprite(PIXI.Loader.shared.resources["eye.png"].texture);
+  eyeW = eye.width;
+  eyeH = eye.height;
+  retina = new PIXI.Sprite(PIXI.Loader.shared.resources["retina.png"].texture);
+  retinaW = retina.width;
+  retinaH = retina.height;
+  app.stage.addChild(retina);
+  app.stage.addChild(eye);  
+  app.ticker.add((delta) => {
+    const mouseposition = app.renderer.plugins.interaction.mouse.global;
+    retina.x = eye.width / 4 + mouseposition.x / 20;
+    retina.y = eye.height / 6 + mouseposition.y / 30;
+  });
+  resize();
+}
+
+PIXI.Loader.shared
+  .add("eye.png")
+  .add("retina.png")
+  .load(setup);
+
+</script>
+{% endblock %}

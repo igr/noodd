@@ -18,6 +18,15 @@ Spig
   .htmlMinify()
 ;
 
+
+Spig
+  .on('/**/*.js')
+
+  ._('RENDER')
+  .js()
+;
+
+
 // IMAGES
 
 Spig

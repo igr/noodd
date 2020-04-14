@@ -4,14 +4,15 @@ footer {
   position: fixed;
   bottom:0;
   width:100%;
-  height:30px;
+  height:40px;
   background-color: $color-black;
   color: $color-silver-light;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   padding-top: 8px;
   letter-spacing: 1px;
   a {
     color: $color-white;
     text-decoration: underline;
+    padding: 3rem 1rem;
   }
 }
