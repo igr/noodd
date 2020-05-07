@@ -1,0 +1,61 @@
+// Randomize.scss
+// https://github.com/mknadler/randomize.scss
+
+@import 'rando-private';
+@import 'rando-public';
+
+.moons {
+  background: #EDEDED;
+  border-radius: 100%;
+  position: absolute;
+  @for $i from 1 through 200 {
+    &:nth-child(#{$i}) {
+      $color: rando-between(0, 120);
+      $size: rando-between(15vw, 25vw);
+      background: rgba($color + rando-between(0, 20),   // R
+          $color,                                       // G
+          $color + rando-between(0, 25),                // B
+          rando-decimal-between(0.2, 0.44));            // A
+      height: $size;
+      width: $size;
+      top: rando-between(0%, 20%) - 15%;
+      left: rando-between(0%, 20%) - 15%;
+      animation: moonimation-#{$i} 2s ease infinite alternate;
+    }
+  }
+}
+
+@for $i from 1 through 200 {
+  @keyframes moonimation-#{$i} {
+    0% {
+      opacity: rando-decimal-between(0.4, 0.5);
+    }
+    100% {
+      opacity: rando-decimal-between(0.1, 0.2);
+    }
+  }
+}
+
+main.container {
+  width: 300px;
+  height: 300px;
+  z-index: 3;
+  position: absolute;
+  margin: auto;
+  top: 4rem;
+  left: 5rem;
+}
+
+body {
+  background-color: #EDEDED;
+}
+
+#poem {
+  position:absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto;
+  height: 20px; /*requires explicit height*/
+  font-size: 3rem;
+  line-height: 3.5rem;
+  width: 400px;
+}
