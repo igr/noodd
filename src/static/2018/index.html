@@ -1,0 +1,364 @@
+<html>
+<head>
+	<title>2018</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+@font-face {
+    font-family: 'Pacifico';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Pacifico'), url('https://themes.googleusercontent.com/font?kit=fKnfV28XkldRW297cFLeqfesZW2xOQ-xsNqO47m55DA') format('truetype');
+}
+body {
+    font-family: monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+    background-color: #f0f0f0;
+    color: #666;
+    text-align: center;
+	overflow: hidden;
+}
+#by {
+	position: absolute;
+	margin:0 auto;
+	padding: 0;
+}
+#by a,#by a:hover, #by a:visited, #by a:active {
+	font-size: 12px;
+	color: #aaa;
+	text-decoration: none;
+	background-color: #fff;
+	padding: 2px 4px;
+}
+#button {
+    display: inline-block;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow:    0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+    -moz-box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+    box-shadow: 0 8px 0 #c5376d, 0 15px 20px rgba(0, 0, 0, .35);
+    -webkit-transition: -webkit-box-shadow .1s ease-in-out;
+    -moz-transition: -moz-box-shadow .1s ease-in-out;
+    -o-transition: -o-box-shadow .1s ease-in-out;
+    transition: box-shadow .1s ease-in-out;
+    font-size: 50px;
+    color: #fff;
+    z-index:100;
+    position: relative;
+}
+#button span {
+    display: inline-block;
+    padding: 20px 30px;
+    background-color: #ec528d;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(hsla(338, 90%, 80%, .8)), to(hsla(338, 90%, 70%, .2)));
+    background-image: -webkit-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+    background-image: -moz-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+    background-image: -o-linear-gradient(hsla(338, 90%, 80%, .8), hsla(338, 90%, 70%, .2));
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+    -moz-box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+    box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .15);
+    font-family: 'Pacifico', Arial, sans-serif;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .7);
+    -webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
+    -moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
+    -o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
+    transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+#button:hover span {
+    background-color: #ec6a9c;
+    text-shadow: 0 -1px 1px rgba(175, 49, 95, .9), 0 0 5px rgba(255, 255, 255, .8);
+}
+#button:active, #button:focus {
+    -webkit-box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+    -moz-box-shadow: 0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+    box-shadow:    0 8px 0 #c5376d, 0 12px 10px rgba(0, 0, 0, .3);
+}
+#button:active span {
+    -webkit-transform: translate(0, 4px);
+    -moz-transform: translate(0, 4px);
+    -o-transform: translate(0, 4px);
+    transform: translate(0, 4px);
+}
+body {
+	display: flex;
+	justify-content: center;
+}
+#body {
+    width: 640px;
+    padding: 140px 0;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: -1px 2px 2px 0px rgba(0, 0, 0, 0.1), 1px 2px 10px 0px rgba(0, 0, 0, 0.1);
+    font-size: 12px;
+}
+img {
+	position: absolute;
+}
+#theEnd {
+	display: none;
+}
+h1 {
+	color: #333;
+}
+@media screen and (max-width: 640px) {
+    #button {
+        font-size: 30px;
+    }
+}
+
+</style>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+ <script>
+ var count = 0;
+ var edge;
+
+// ui
+jQuery.fn.rotate = function(degrees) {
+    $(this).css({'transform' : 'rotate('+ degrees +'deg)'});
+    return $(this);
+};
+function text(txt) {
+	txt = String(txt);
+	$("#button span").text(txt);
+}
+function randomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = a[i];
+        a[i] = a[j];
+        a[j] = x;
+    }
+}
+function sticker(stickerId) {
+	var img = new Image();
+	img.src = 'sticker' + stickerId + '.png';
+	stickerId = stickerId + 1;
+	$(img).appendTo("body").on("load", function() {
+		var $image = $(this);
+		var h = $(window).height();
+		var w = $(window).width();
+
+		var xPos = randomInt(0, w - $image.width());
+		var yPos = randomInt(0, h - $image.height());
+		var zIndex = randomInt(0, 90);
+		var degree = randomInt(-90, 90);
+
+		$image.rotate(degree).animate({'z-index': zIndex}, 100).animate({left: xPos, top: yPos}, 500);
+	});
+}
+function removeAllStickers() {
+	$("img").remove();
+}
+
+// sounds
+function playClick1() {
+ 	var sound = $('#sound_click1').get(0);
+ 	sound.load();
+ 	sound.play();
+}
+function playClick2() {
+ 	var sound = $('#sound_click2').get(0);
+ 	sound.load();
+ 	sound.play();
+}
+function playHorn() {
+ 	var sound = $('#sound_horn').get(0);
+ 	sound.load();
+ 	sound.play();
+}
+
+// actions
+var actions = new Array();
+var clickSounds = {
+	13: playClick2,
+	2008: playClick2,
+	2009: playClick2,
+	2010: playClick2,
+	2011: playClick2,
+	2012: playClick2,
+	2013: playClick2,
+	2014: playClick2,
+	2015: playClick2,
+	2016: playClick2,
+	2017: playHorn,
+	2018: playHorn
+}
+
+// story
+function makeStory(str, extra) {
+	var arr = str.split('|');
+	totalLen = arr.length + extra;
+	while (arr.length < totalLen) {
+		var index = randomInt(1, arr.length - 1);
+		arr.splice(index, 0, '*');
+	}
+	return arr;
+}
+const story1 =
+		"Hi!|Nice to see you.|Let me|introduce|myself:|I am a|very happy|button!|Yes!|" +
+		"I also have|a secret|to share!|Shhhhh....|Look:|I am also a|MAGIC|button!|" +
+		"!?!|Magic?|Yes, Magic.|Don't believe me?|Ah...|Okay.|How about|this?|" +
+		"-unicorn|What is that!?|-unicorn|An unicorn!|-unicorn|And another one!|-unicorn|" +
+		"Now that is|-unicorn|some awesome|-unicorn|MAGIC!|-unicorn|" +
+		"M-A-G-I-C!|@|Okay.|Wait!|There is more!|I bring|happiness|and joy|in the|New Year!|" +
+		"Just...|...keep...|...clicking!";
+const story2 =
+		"Click me.|Like that.|Keep...|...clicking.|Please!|Why?|Why not!|It is a|New Year|after all!|" +
+		"And everyone|loves some|clicking!";
+const story3 =
+		"Life isn’t |about finding |yourself.| Life is |about |creating yourself.|" +
+		"Don’t judge |each day |by the harvest| you reap |but by the |seeds you plant.|" +
+		"We don’t see |things the way |they are. |We see them |the way WE are.|" +
+		"I have found |that if |you love life,| life will |love you |back.|" +
+		"A journey of |a thousand miles| begins with |a single step.|" +
+		"I skate to |where the puck| is going to be,| not where it| has been.|" +
+		"There are |two ways |to live |your life. |One is |as though nothing| is a miracle.| The other is |as though |everything| is a miracle.";
+
+const story4 =
+		"New Year's Day.| A fresh start.| A new chapter| in life |waiting |to be written.| New questions |to be asked,| embraced,| and loved.|" +
+		"Answers to be| discovered |and then lived| in this |transformative year| of delight |and self-discovery.| Today |carve out |a quiet |" +
+		"interlude |for yourself |in which |to dream,| pen in hand.| Only dreams| give birth| to change.";
+
+const story5 =
+		"I hope that| in this year| to come,| you make mistakes.| Because |if you are| making mistakes,| then you are| making |new things,|" +
+		"trying |new things,| learning, |living, |pushing yourself,| changing yourself,| changing your |world.| You're |doing things |" +
+		"you've |never done| before,| and more importantly,| you're doing| something.";
+
+const story6 =
+		"Take a |leap of faith |and begin |this wondrous |new year |by believing. |Believe in |yourself. |And believe |that there is |" +
+		"a loving |Source |a Sower |of Dreams | just waiting |to be asked |to help you |make your |dreams |come true.";
+
+const story7 =
+		"You may|wonder|how many|times|you have|to click me?|Well...|click once|for every|year.|That's right.| 2018 times.|" +
+		"Only 2018 clicks.| That isn't much.| Wait!| Don't go.|Please.|Pleeeease.|I know|magic,|remember?|"+
+		"I have unicorns!|-unicorn|What?|You want|more?|-unicorn|Something else?|Got it.|Here is|something|else.|" +
+		"-diamond|Beautiful!?|More?|-smoke|-unicorn|-ghost|-unicorn|Party!|-unicorn|Yeah!|-elephant|Yeah!|-pig|" +
+		"-unicorn|Bring it on!|-unicorn|*|Too much?|Hmm...|Maybe.|" +
+		"Ok, ok.|@|Done.|It's just|you and me|now.|Ok.|I will tell|you another|secret.|You|DON'T|have|to|click|2018|times.|" +
+		"Yeah.|No kidding.|How?|Easy.|Just be good.|That's it.|Be good|to yourself.|Be good|to your family.|Be good|to strangers.|" +
+		"Be good|to the world.|Just that.|And smile.|Got it?|Yes?|Yes!|Fine!|Nice!|Beautiful!|It's time|for magic.";
+
+const endStory =
+		"Wow!|Almost there!|You are so close!|You CAN do it!|DO IT!|Few more clicks!|" +
+		"You are|super-awesome!|I always|believed in YOU!|You gonna have an|AWESOME|year!|" +
+		"This is it!|Let's count together!|Ten!|Nine!|Eight!|Seven!|Six!|Five!|Four|THREE!|TWO!|ONE!!!|" +
+		"Happy New Year!";
+
+function generateStory() {
+	var story = makeStory(story1, 10);
+	actions = actions.concat(story);
+
+	var arr = [
+		function() {actions = actions.concat(makeStory(story2, 10));},
+		function() {actions = actions.concat(makeStory(story3, 20));},
+		function() {actions = actions.concat(makeStory(story4, 15));},
+		function() {actions = actions.concat(makeStory(story5, 10));},
+		function() {actions = actions.concat(makeStory(story6, 10));},
+	];
+
+	shuffle(arr);
+	for (f of arr) {
+        f();
+        actions = actions.concat(['*','*','*','*','*','*','*','*','*','*','*','*','*','*','*',]);
+    }
+
+	story = makeStory(story7, 20);
+	actions = actions.concat(story);
+
+	edge = actions.length + 2;
+	console.log(actions.length);
+
+	story = makeStory(endStory, 0);
+	actions[2018 - 1 - story.length] = '*';
+	actions = actions.concat(story);
+	console.log(actions.length);
+}
+
+function theEnd() {
+	$("#button").hide();
+	$("#theEnd").show();
+}
+
+$(function() {
+	generateStory();
+	$("#button").click(function(event) {
+		if (count === 2019) {
+			playHorn();
+			theEnd();
+			return false;
+		}
+		const ndx = count;
+		count = count + 1;
+		if (count == edge) {
+			playClick2();
+			count = 1991;
+			text(count);
+			count = count + 1;
+			return false;
+		}
+		var clickSound = clickSounds[ndx];
+		if (clickSound) {
+			clickSound();
+		} else {
+			playClick1();
+		}
+		var str = actions[ndx];
+		if (!str) {
+			str = '*';
+		}
+		var action;
+		if (str == '*') {
+			action = function() {text(ndx);};
+		}
+		else if (str == '@') {
+			action = function() {removeAllStickers(); text(ndx);};
+		}
+		else if (str.startsWith('-') == true) {
+			action = function() {sticker(str)};
+		}
+		else {
+			action = function() {text(str);};
+		}
+		action();
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+<audio id="sound_click1" preload="auto">
+    <source src="click1.mp3" type="audio/mp3" />
+</audio>
+<audio id="sound_click2" preload="auto">
+    <source src="click2.mp3" type="audio/mp3" />
+</audio>
+<audio id="sound_horn" preload="auto">
+    <source src="horn.mp3" type="audio/mp3" />
+</audio>
+	<div id="by"><a href="https://igo.rs">by igor</a></div>
+	<div id="body">
+		<div id="theEnd">
+			<p>(you had to click, didn't you?)</p>
+			<h1>You Beat The Game.</h1>
+			<h2>Be good in 2018.</h2>
+		</div>
+		<a href="#" id="button">
+    		<span>Hello!</span>
+		</a>
+	</div>
+
+</body>
+</html>

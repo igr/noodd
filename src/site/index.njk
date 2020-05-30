@@ -6,13 +6,19 @@ layout: "main"
 {% block main %}
 <main class="center-parent">
 
-{% set page_g = site.pageOfSrc('/g/index.njk') %}
-{% set page_eye = site.pageOfSrc('/eye/index.njk') %}
-{% set page_moon = site.pageOfSrc('/moon/index.njk') %}
+  {% set page_g = site.pageOfSrc('/g/index.njk') %}
+  <a href="{{ page_g.url }}">{{ page_g.title }}</a>
 
-<a href="{{ page_g.url }}">{{ page_g.title }}</a>
-<a href="{{ page_eye.url }}">{{ page_eye.title }}</a>
-<a href="{{ page_moon.url }}">{{ page_moon.title }}</a>
+  {% set page_eye = site.pageOfSrc('/eye/index.njk') %}
+  <a href="{{ page_eye.url }}">{{ page_eye.title }}</a>
+
+  {% set page_moon = site.pageOfSrc('/moon/index.njk') %}
+  <a href="{{ page_moon.url }}">{{ page_moon.title }}</a>
+
+  {% set page_take = site.pageOfSrc('/take-your-art/index.njk') %}
+  <a href="{{ page_take.url }}">{{ page_take.title }}</a>
+
+  <a href="/2018/">2018</a>
 
 </main>
 {% endblock %}

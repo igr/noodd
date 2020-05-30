@@ -26,6 +26,13 @@ Spig
   .js()
 ;
 
+Spig
+  .on('/**/*.css')
+
+  ._('INIT')
+  .assetLinks()
+;
+
 
 // IMAGES
 

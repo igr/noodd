@@ -1,0 +1,211 @@
+---
+title: "take your art"
+id: 4
+---
+
+{% block head %}
+  <script src="foo.js"></script>
+  <script src="https://unpkg.com/konva@3.4.0/konva.min.js"></script>
+  <script src="jspdf.min.js"></script>
+  <script src="html2canvas.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+{% endblock %}
+
+{% block main %}
+<div id="head"><img src="ispis.png" style="height: 55px;"></div>
+<div id="buttons">
+  <div class="btn" style="padding-top: 4px; font-size: 12px; text-align: center; line-height: 14px;">Art: <a href="http://www.behance.net/jovanajovanovic" target="_blank">Jovana Jovanović</a>
+  </div>
+  <div id="trash-btn" class="btn"></div>
+  <div id="clear-btn" class="btn"></div>
+  <div id="print-btn" class="btn"></div>
+  <input type="text" id="name" placeholder=">>" style="display: none;"></input>
+</div>
+<main id="m" ondrop="drop(event)" ondragover="allowDrop(event)"></main>
+<menu class="menu">
+  <div id="avion"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/avion.png);"></div>
+  <div id="banana"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/banana.png);"></div>
+  <div id="gang"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/gang.png);"></div>
+  <div id="gramofon"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/gramofon.png);"></div>
+  <div id="lamborghini"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/lamborghini.png);"></div>
+  <div id="manekineko"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url('g/t/maneki neko.png');"></div>
+  <div id="miami"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/miami.png);"></div>
+  <div id="palma"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/palma.png);"></div>
+  <div id="palmaisunce"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url('g/t/palma i sunce.png');"></div>
+  <div id="sprej"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/sprej.png);"></div>
+  <div id="talas"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/talas.png);"></div>
+  <div id="tranzistor"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/tranzistor.png);"></div>
+  <div id="bigbang"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url('g/t/big bang.png');"></div>
+  <div id="blingbling"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url('g/t/bling bling.png');"></div>
+  <div id="jela"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/jela.png);"></div>
+  <div id="zvezdica"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url(g/t/zvezdica.png);"></div>
+  <div id="macakpandur"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url('g/t/macak pandur.png');"></div>
+  <div id="kittyrebelde"
+       draggable="true" ondragstart="drag(event)"
+       style="background-image: url('g/t/kitty rebelde.png');"></div>
+  <div id="bananagang"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/banana gang.png');"></div>
+  <div id="colorgang"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/color gang.png');"></div>
+  <div id="epruveta"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/epruveta.png');"></div>
+  <div id="gameboy"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/game boy.png');"></div>
+  <div id="flamingomanekeni"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/flamingo maneki neko.png');"></div>
+  <div id="ispraymyself"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/i sprays myself.png');"></div>
+  <div id="lepeza"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/lepeza.png');"></div>
+  <div id="limunce"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/limunce.png');"></div>
+  <div id="nintendods"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/nintendo ds lite HEAPCON.png');"></div>
+  <div id="martinibianco"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/martini bianco.png');"></div>
+  <div id="pepsi"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/pepsi.png');"></div>
+  <div id="padajuca"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/padajuca.png');"></div>
+  <div id="cvaje"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/1jako dobre cvaje.png');"></div>
+  <div id="sunglasses"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/1sunglasses.png');"></div>
+  <div id="pizzaa"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/pizzaa.png');"></div>
+  <div id="sketba"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/sketba.png');"></div>
+  <div id="starblue"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/star blue.png');"></div>
+  <div id="starpurple"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/star purple.png');"></div>
+  <div id="zkoinobori"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/z koinobori.png');"></div>
+  <div id="zmia"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/zmia.png');"></div>
+  <div id="zvezdacrvena"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/zvezda crvena.png');"></div>
+  <div id="zvezdazelena"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/zvezda zelena.png');"></div>
+  <div id="skejt"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/skejt.png');"></div>
+  <div id="okto"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/okto.png');"></div>
+  <div id="zmia2"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/zmia2.png');"></div>
+  <div id="tajgrrr"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/tajgrrr.png');"></div>
+  <div id="alien"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/alien.png');"></div>
+  <div id="alien2"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/alien2.png');"></div>
+  <div id="buuuurn"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/buuuurn.png');"></div>
+  <div id="crycry"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/CRY CRY.png');"></div>
+  <div id="desnapepeljuga"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/desna pepeljuga.png');"></div>
+  <div id="fajaaa"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/fajaaa.png');"></div>
+  <div id="helicopter"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/helicopter.png');"></div>
+  <div id="hugyourself"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/hug yourself.png');"></div>
+  <div id="leva"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/leva.png');"></div>
+  <div id="nota1"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/nota 1.png');"></div>
+  <div id="nota2"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/nota 2.png');"></div>
+  <div id="nota3"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/nota 3.png');"></div>
+  <div id="rocknroll"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/rock n rolla cmok i kola.png');"></div>
+  <div id="sinti"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/sinti.png');"></div>
+  <div id="watermelon"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/watermelon.png');"></div>
+  <div id="zavid"
+      draggable="true" ondragstart="drag(event)"
+      style="background-image: url('g/t/za vid.png');"></div>
+</menu>
+{% endblock %}
+
+{% block script %}
+<script src="index.js"></script>
+{% endblock %}
