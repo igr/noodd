@@ -159,11 +159,14 @@ layout: "main"
           if (word.length > 0) {
             word = word.substr(0, word.length - 1);
             g.innerHTML = word;
+            if (word === '') {
+              g.innerHTML = 'noodd';
+            }
           }
         }
         else if (event.key === 'Escape') {
-          word = 'noodd';
-          g.innerHTML = word;
+          word = '';
+          g.innerHTML = 'noodd';
         }
         else if (event.key === 'Enter') {
           run(word);
