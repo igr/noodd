@@ -1,0 +1,186 @@
+---
+title: "noodd"
+layout: "main"
+---
+
+{% block head %}
+  <style>
+      main div {
+          font-size: 40vmin;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transform-origin: bottom center;
+          line-height:30vmin;
+          transition: .1s;
+      }
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Acme|Alegreya|Alegreya+Sans|Anton|Archivo|Archivo+Black|Archivo+Narrow|Arimo|Arvo|Asap|Asap+Condensed|Bitter|Bowlby+One+SC|Bree+Serif|Cabin|Cairo|Catamaran|Crete+Round|Crimson+Text|Cuprum|Dancing+Script|Dosis|Droid+Sans|Droid+Serif|EB+Garamond|Exo|Exo+2|Faustina|Fira+Sans|Fjalla+One|Francois+One|Gloria+Hallelujah|Hind|Inconsolata|Indie+Flower|Josefin+Sans|Julee|Karla|Lato|Libre+Baskerville|Libre+Franklin|Lobster|Lora|Mada|Manuale|Maven+Pro|Merriweather|Merriweather+Sans|Montserrat|Montserrat+Subrayada|Mukta+Vaani|Muli|Noto+Sans|Noto+Serif|Nunito|Open+Sans|Open+Sans+Condensed:300|Oswald|Oxygen|PT+Sans|PT+Sans+Caption|PT+Sans+Narrow|PT+Serif|Pacifico|Passion+One|Pathway+Gothic+One|Play|Playfair+Display|Poppins|Questrial|Quicksand|Raleway|Roboto|Roboto+Condensed|Roboto+Mono|Roboto+Slab|Ropa+Sans|Rubik|Saira|Saira+Condensed|Saira+Extra+Condensed|Saira+Semi+Condensed|Sedgwick+Ave|Sedgwick+Ave+Display|Shadows+Into+Light|Signika|Slabo+27px|Source+Code+Pro|Source+Sans+Pro|Spectral|Titillium+Web|Ubuntu|Ubuntu+Condensed|Varela+Round|Vollkorn|Work+Sans|Yanone+Kaffeesatz|Zilla+Slab|Zilla+Slab+Highlight" rel="stylesheet">
+{% endblock %}
+
+
+{% block main %}
+  <main class="center-parent"><div id='g'>
+      noodd
+    </div></main>
+{% endblock %}
+
+{% block script %}
+  <script src="foo.js"></script>
+  <script>
+  const fonts = [
+    'Roboto',
+    'Zilla Slab Highlight',
+    'Open Sans',
+    'Spectral',
+    'Slabo 27px',
+    'Lato',
+    'Roboto Condensed',
+    'Oswald',
+    'Source Sans Pro',
+    'Raleway',
+    'Zilla Slab',
+    'Montserrat',
+    'PT Sans',
+    'Roboto Slab',
+    'Merriweather',
+    'Saira Condensed',
+    'Saira',
+    'Open Sans Condensed',
+    'Saira Semi Condensed',
+    'Saira Extra Condensed',
+    'Julee',
+    'Archivo',
+    'Ubuntu',
+    'Lora',
+    'Manuale',
+    'Asap Condensed',
+    'Faustina',
+    'Cairo',
+    'Playfair Display',
+    'Droid Serif',
+    'Noto Sans',
+    'PT Serif',
+    'Droid Sans',
+    'Arimo',
+    'Poppins',
+    'Sedgwick Ave Display',
+    'Titillium Web',
+    'Muli',
+    'Sedgwick Ave',
+    'Indie Flower',
+    'Mada',
+    'PT Sans Narrow',
+    'Noto Serif',
+    'Bitter',
+    'Dosis',
+    'Josefin Sans',
+    'Inconsolata',
+    'Bowlby One SC',
+    'Oxygen',
+    'Arvo',
+    'Hind',
+    'Cabin',
+    'Fjalla One',
+    'Anton',
+    'Cairo',
+    'Playfair Display',
+    'Droid Serif',
+    'Noto Sans',
+    'PT Serif',
+    'Droid Sans',
+    'Arimo',
+    'Poppins',
+    'Sedgwick Ave Display',
+    'Titillium Web',
+    'Muli',
+    'Sedgwick Ave',
+    'Indie Flower',
+    'Mada',
+    'PT Sans Narrow',
+    'Noto Serif',
+    'Bitter',
+    'Dosis',
+    'Josefin Sans',
+    'Inconsolata',
+    'Bowlby One SC',
+    'Oxygen',
+    'Arvo',
+    'Hind',
+    'Cabin',
+    'Fjalla One',
+    'Anton',
+    'Acme',
+    'Archivo Narrow',
+    'Mukta Vaani',
+    'Play',
+    'Cuprum',
+    'Maven Pro',
+    'EB Garamond',
+    'Passion One',
+    'Ropa Sans',
+    'Francois One',
+    'Archivo Black',
+    'Pathway Gothic One',
+    'Exo',
+    'Vollkorn',
+    'Libre Franklin',
+    'Crete Round',
+    'Alegreya',
+    'PT Sans Caption',
+    'Alegreya Sans',
+    'Source Code Pro',
+  ];
+  function rnd(max) {
+    return Math.floor((Math.random() * max) + 1);
+  }
+  function change() {
+    const style = _('#g').style;
+
+    style.fontFamily = fonts[rnd(fonts.length) - 1];
+
+    const weight = rnd(9);
+    style.fontWeight = weight * 100;
+
+    const skew = 45 - rnd(90);
+    style.transform = 'skew(' + skew + 'deg)';
+  }
+  let word = '';
+  ready(() => {
+    const g = _('#g');
+    setInterval(change, 200);
+    document.addEventListener("keydown", event => {
+      if (event.key.length === 1) {
+        word += event.key;
+        g.innerHTML = word;
+      }
+      else {
+        if (event.key === 'Backspace') {
+          if (word.length > 0) {
+            word = word.substr(0, word.length - 1);
+            g.innerHTML = word;
+          }
+        }
+        else if (event.key === 'Escape') {
+          word = '';
+          g.innerHTML = word;
+        }
+        else if (event.key === 'Enter') {
+          run(word);
+        }
+      }
+
+    });
+  });
+
+  // runs the word :)
+  function run(word) {
+    switch (word) {
+      case 'only':
+      case 'power':
+      case 'another':
+        window.location.href = '/' + word;
+    }
+  }
+  </script>
+{% endblock %}

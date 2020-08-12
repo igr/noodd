@@ -1,0 +1,28 @@
+{
+  "name": "noodd",
+  "version": "1.0.0",
+  "description": "noodd",
+  "scripts": {
+    "clean": "rm -rf out",
+    "dev": "node spig.js dev",
+    "build": "node spig.js",
+    "build:lambda": "cd netlify && build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/igr/noodd"
+  },
+  "author": {
+    "name": "Igor Spasić",
+    "email": "igor.spasic@gmail.com",
+    "url": "https://igo.rs/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igr/noodd/issues"
+  },
+  "homepage": "https://noodd.com",
+  "dependencies": {
+    "spignite": "^2.2.3"
+  }
+}
