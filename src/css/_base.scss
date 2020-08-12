@@ -70,7 +70,7 @@ body {
 #lyrics {
   margin: 1em;
   font-size: 3vw;
-  line-height: 10rem;
+  line-height: 120%;
   b {
     font-family: "quincy_cfbold", serif;
   }
@@ -83,6 +83,7 @@ body {
   }
   #lyrics {
     font-size: 4vw;
+    margin-bottom: 2em;
   }
 }
 
