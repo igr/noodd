@@ -11,9 +11,7 @@ footer {
   font-size: 1.6rem;
   padding-top: 8px;
   letter-spacing: 1px;
-  a {
-    color: $color-white;
-    text-decoration: underline;
-    padding: 3rem 1rem;
+  span {
+    text-decoration: line-through;
   }
 }

@@ -87,3 +87,76 @@ body {
   }
 }
 
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.char1,
+.char2,
+.char3,
+.char4,
+.char5,
+.char6,
+.char7,
+.char0 {
+  animation-name: tada;
+  animation-iteration-count: infinite;
+  display: inline-block;
+}
+
+.char1 {
+  animation-duration: 1.8s;
+  animation-delay: 0.3s;
+}
+.char2 {
+  animation-duration: 2s;
+  animation-delay: 0.8s;
+}
+.char3 {
+  animation-duration: 1.8s;
+  animation-delay: 1.2s;
+}
+.char4 {
+  animation-duration: 2s;
+  animation-delay: -0.2s;
+}
+.char5 {
+  animation-duration: 2.2s;
+  animation-delay: -1s;
+}
+.char6 {
+  animation-duration: 2s;
+  animation-delay: -1.6s;
+}
+.char7 {
+  animation-duration: 2s;
+  animation-delay: 0.1s;
+}
+.char0 {
+  animation-duration: 2.4s;
+  animation-delay: 0.6s;
+}
