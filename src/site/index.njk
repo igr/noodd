@@ -149,7 +149,11 @@ layout: "main"
   ready(() => {
     const g = _('#g');
     setInterval(change, 200);
+
     document.addEventListener("keydown", event => {
+      if (event.ctrlKey || event.altKey) {
+        return;
+      }
       if (event.key.length === 1) {
         word += event.key;
         g.innerHTML = word;
